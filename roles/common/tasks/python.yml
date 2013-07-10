@@ -1,0 +1,44 @@
+---
+- name: install all python dependencies
+  sudo: True
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - openssl
+    - libssl-dev
+    - libbz2-dev
+    - zlib1g-dev
+    - libexpat1-dev
+    - libdb4.8-dev
+    - libsqlite3-dev
+    - libncursesw5-dev
+    - libncurses5-dev
+    - libreadline-dev
+    - libxml2-dev
+
+- name: copy Python-2.7.3.tgz to /tmp
+  copy: src=Python-2.7.3.tgz
+        dest=/tmp/Python-2.7.3.tgz
+        owner=vagrant
+        group=vagrant
+        mode=0744
+
+- name: untar Python-2.7.3 into /tmp directory
+  command: tar -xzvf /tmp/Python-2.7.3.tgz
+           chdir=/tmp
+           creates=/tmp/Python-2.7.3
+
+- name: configure Python-2.7.3
+  command: ./configure --prefix=/opt/python-2.7.3
+           chdir=/tmp/Python-2.7.3
+           creates=/opt/python-2.7.3
+
+- name: make Python-2.7.3
+  command: make
+           chdir=/tmp/Python-2.7.3
+           creates=/opt/python-2.7.3
+
+- name: make install Python-2.7.3
+  sudo: True
+  command: make install
+           chdir=/tmp/Python-2.7.3
+           creates=/opt/python-2.7.3

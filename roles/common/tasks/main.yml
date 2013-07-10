@@ -1,3 +1,12 @@
 ---
 - include: apt.yml
 - include: build_essential.yml
+- include: vim.yml
+- include: curl.yml
+- include: git.yml
+- include: ssh.yml
+- include: python.yml
+- include: postgres.yml
+- include: pip.yml
+- include: virtualenv.yml
+- include: dotted.yml

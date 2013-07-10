@@ -1,0 +1,4 @@
+---
+- name: install curl
+  sudo: True
+  apt: pkg=vim state=latest

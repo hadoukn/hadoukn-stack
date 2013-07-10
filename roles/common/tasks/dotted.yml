@@ -1,0 +1,18 @@
+---
+- name: clone dotted repo
+  git: repo=git@github.com:jayd3e/.dotted.git
+       dest=/home/vagrant/.dotted
+
+- name: delete .profile to re-create
+  file: path=/home/vagrant/.profile
+        state=absent
+
+- name: create a symbolic link (/home/vagrant/.profile <- /home/vagrant/.dotted/.profile)
+  file: path=/home/vagrant/.profile
+        src=/home/vagrant/.dotted/.profile
+        state=link
+
+- name: create a symbolic link (/home/vagrant/.gitconfig <- /home/vagrant/.dotted/.gitconfig)
+  file: path=/home/vagrant/.gitconfig
+        src=/home/vagrant/.dotted/.gitconfig
+        state=link

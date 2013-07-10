@@ -1,0 +1,4 @@
+---
+- name: install virtualenv
+  sudo: True
+  pip: name=virtualenv state=latest

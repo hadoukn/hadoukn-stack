@@ -1,4 +1,4 @@
 ---
 - name: install build-essential
   sudo: True
-  action: apt pkg=build-essential state=latest
+  apt: pkg=build-essential state=latest

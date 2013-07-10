@@ -1,0 +1,3 @@
+[submodule "roles/common/files/.dotted"]
+	path = roles/common/files/.dotted
+	url = git@github.com:jayd3e/.dotted.git

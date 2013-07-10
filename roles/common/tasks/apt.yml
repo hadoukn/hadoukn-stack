@@ -1,4 +1,4 @@
 ---
 - name: do an apt-get update
   sudo: True
-  action: apt update_cache=True
+  apt: update_cache=True
