@@ -3,6 +3,7 @@
   sudo: True
   apt: pkg={{ item }} state=latest
   with_items:
+    - python-dev
     - openssl
     - libssl-dev
     - libbz2-dev
