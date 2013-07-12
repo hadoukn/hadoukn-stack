@@ -1,4 +1,6 @@
 ---
+- include: build_essential.yml
+
 - name: install all python dependencies
   sudo: True
   apt: pkg={{ item }} state=latest
