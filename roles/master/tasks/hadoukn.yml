@@ -1,20 +1,8 @@
 ---
-- name: install libpq-dev library for psycopg2
+- name: install libpq5 library for psycopg2
   sudo: True
   apt: pkg=libpq-dev state=latest
 
 - name: install psycopg2
   sudo: True
   pip: name=psycopg2
-
-- name: create the hadoukn database
-  sudo: True
-  sudo_user: postgres
-  postgresql_db: name=hadoukn
-
-- name: create the vagrant user and grant all privileges
-  sudo: True
-  sudo_user: postgres
-  postgresql_user: name=vagrant
-                   password=fluffy&Bunny
-                   db=hadoukn
