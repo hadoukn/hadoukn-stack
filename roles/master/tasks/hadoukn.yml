@@ -20,3 +20,19 @@
   postgresql_user: name=vagrant
                    password=fluffy&Bunny
                    db=hadoukn
+
+- name: create the hadoukn root directory
+  file: path=/opt/webapp/hadoukn
+        owner=vagrant
+        group=vagrant
+        state=directory
+
+- name: create the hadoukn virtualenv
+  command: virtualenv /opt/webapp/hadoukn
+           creates=/opt/webapp/hadoukn/bin/python
+
+- name: clone the hadoukn git repository
+  git: repo=git@github.com:hadoukn/hadoukn.git
+       dest=/opt/webapp/hadoukn/src
+       update=no
+       force=no

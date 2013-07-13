@@ -1,0 +1,16 @@
+---
+- name: create the docker-registry root directory
+  file: path=/opt/webapp/docker-registry
+        owner=vagrant
+        group=vagrant
+        state=directory
+
+- name: create the docker-registry virtualenv
+  command: virtualenv /opt/webapp/docker-registry
+           creates=/opt/webapp/docker-registry/bin/python
+
+- name: clone the docker-registry git repository
+  git: repo=git@github.com:dotcloud/docker-registry.git
+       dest=/opt/webapp/docker-registry/src
+       update=no
+       force=no
