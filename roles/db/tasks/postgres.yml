@@ -2,15 +2,3 @@
 - name: install postgres
   sudo: True
   apt: pkg=postgresql state=latest
-
-- name: create the hadoukn database
-  sudo: True
-  sudo_user: postgres
-  postgresql_db: name=hadoukn
-
-- name: create the vagrant user and grant all privileges
-  sudo: True
-  sudo_user: postgres
-  postgresql_user: name=vagrant
-                   password=fluffy&Bunny
-                   db=hadoukn

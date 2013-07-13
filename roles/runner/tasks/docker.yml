@@ -1,0 +1,22 @@
+# Only necessary on ec2 systems
+# - name: install docker dependencies
+#   sudo: true
+#   apt: pkg=linux-image-extra-3.2.0-23-generic
+#        state=latest
+
+- name: install software-properties-common
+  sudo: true
+  apt: pkg=software-properties-common
+       state=latest
+
+- name: add docker repository
+  sudo: true
+  apt_repository: repo=ppa:dotcloud/lxc-docker
+
+- name: do an apt-get update
+  sudo: true
+  apt: update_cache=True
+
+- name: install docker
+  sudo: true
+  apt: pkg=lxc-docker

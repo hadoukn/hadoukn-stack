@@ -17,6 +17,7 @@
     - libncurses5-dev
     - libreadline-dev
     - libxml2-dev
+    - python-software-properties
 
 - name: copy Python-2.7.3.tgz to /tmp
   copy: src=Python-2.7.3.tgz
