@@ -3,6 +3,7 @@
 - include: curl.yml
 
 # shouldn't actually be necessary in common, fine for now
+- include: ssh.yml
 - include: git.yml
 - include: python.yml
 - include: pip.yml
